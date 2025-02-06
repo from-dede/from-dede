@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.all.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.all.min.js"></script>
+    <script>
+      const swalo = Swal.mixin({ allowOutsideClick: false, showCancelButton: false, customClass: { popup: "border-radius" } });
+    </script>
+    <link rel="stylesheet" href="https://files.dariku.my.id/dk202/style.css" />
+    <title>Spesial Buat Kamu</title>
+  </head>
+  <body>
+    <div class="preload"><p>Loading dulu . . .</p></div>
+    <div class="open">
+      <div>
+        <div class="lope" onclick="ilang()"><i class="love material-icons-sharp"> favorite </i></div>
+        <h3>Pencet Love nya</h3>
+      </div>
+    </div>
+    <div class="bg">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="bg-love"></div>
+    <div class="content adascroll contentslide1">
+      <div class="slidekuy1">
+        <p id="typetxt" class="typetxt1"></p>
+        <button id="lanjut" class="lanjut1" onclick="tampilContent2()">Klik untuk Lanjut ya!</button>
+      </div>
+    </div>
+    <div class="content2 contentslide2">
+      <div class="txtPilihHadiah">
+        <p style="max-width: 70vw" class="typetxt2"></p>
+      </div>
+      <div class="hadiahku">
+        <div class="row">
+          <img src="https://files.dariku.my.id/dk202/kado.png" class="kado" />
+          <img src="https://files.dariku.my.id/dk202/kado.png" class="kado" />
+        </div>
+        <div class="row">
+          <img src="https://files.dariku.my.id/dk202/kado.png" class="kado" />
+          <img src="https://files.dariku.my.id/dk202/kado.png" class="kado" />
+        </div>
+      </div>
+    </div>
+
+    <div class="content adascroll contentslide4">
+      <div class="slidekuy2">
+        <p id="typetxt" class="typetxt4"></p>
+        <button id="lanjut" class="lanjut4" onclick="tampilContent5()">Klik untuk Lanjut ya!</button>
+      </div>
+    </div>
+
+    <div class="content contentadascroll contentslide5">
+      <div class="slidekuy">
+        <p id="typetxt" class="typetxt5"></p>
+      </div>
+      <button id="lanjut" class="lanjut5" onclick="tampilContent6()">Klik untuk Lanjut ya!</button>
+    </div>
+
+    <div class="content adascroll contentslide6">
+      <div class="slidekuy3">
+        <p id="typetxt" class="typetxt6"></p>
+        <button id="lanjut" class="lanjut6" onclick="tampilContent3()">Klik untuk Lanjut ya bby!</button>
+      </div>
+    </div>
+
+    <div class="content2 contentslide3">
+      <div class="txtPilihHadiah">
+        <p class="typetxt3"></p>
+      </div>
+      <div class="formwish">
+        <textarea name="" id="valuewish" rows="7"></textarea>
+      </div>
+      <button class="kirimwish" onclick="sendwish()">Kirim</button>
+    </div>
+
+    <div class="wm">
+      <p></p>
+    </div>
+
+    <script>
+      // ========================
+
+      // Musik
+      musik = "music.mp3";
+
+      // Daftar Foto
+      background1 = "FOTO1.jpg";
+      background2 = "FOTO2.jpg";
+      background3 = "FOTO3.jpg";
+      background4 = "FOTO4.jpg";
+      background5 = "FOTO5.jpg";
+      background6 = "FOTO6.jpg";
+
+      // Note: tanda pagar (#) untuk membuat enter
+      // Ucapan Slide 1
+      ucapan1 = "Selamat Ulang Tahun, Sayangku.##Semoga aku berhasil jadi orang pertama yang ucapin ini ya, yang terpenting aku masih nemuin ulang tahun kali ini sama kamu, walau terlewatkan ulang tahun kamu di 2024, tapi aku bersyukur bisa nemenin kamu ulang tahun di 2025, ya walau ga semewah yang seperti kmu kira.";
+
+      // Ucapan Slide 2 / Pilihan Kado
+      ucapan2 = "Ada kado buat kamu, pilih satu ya";
+      kado1 = "kamu dapet Kue ultah boongan wkwk";
+      kado2 = "kamu dapet Es krim boongan wkwk";
+      kado3 = "kamu dapet Cinta tulusku 1000%";
+      kado4 = "kamu dapet Kasih sayangku sepenuhnya";
+
+      // Ucapan Slide 3
+      ucapan3 = "Semoga di umur kamu sekarang semesta lebih berpihak, semoga bisa mendapatkan hal yang selama ini di perjuangkan. Semoga senantiasa diberi kebahagiaan trus ya sayang.##I love you on your birthday, and everyday, now and forever.";
+
+      // Ucapan Slide 4
+      ucapan4 =
+        'Seperti biasanya, kamu masuk di slide longtext##Aku mau ucapain banyak" terimakasih buat selama ini, terimakasih udah jalan sejauh ini, terimakasih udah nerima kurang lebihnya aku, terimakasih atas sabarmu, terimakasih buat semua yang kamu kasih ke aku, yang aku gabisa bales satu per satu, makasih atas effort, perhatian, apapun itu dalam bentuk apapun itu, aku ucapain terimakasih banyak##Aku minta maaf aku bukan cowo yang bisa ngerti kamu, ngga paham sama pikiran kamu#Maaf buat perilaku yang nyakitin kamu setiap saat, maaf selalu ngerepotin kamu, im so lucky have you#Jangan bosen sama aku, jangan jauh sama aku, tetep sama aku ya, aku udah cukup berantakan apalagi kalo ga sama kamu.';
+
+      // Ucapan Slide 5
+      ucapan5 = "Maaf ya sayang di ulang tahun kamu kali ini aku gabisa ngasih kamu apa-apa, selain ucapan slide ini yang aku buat 2hari 1malam sampe ketiduran karna ngantuk dan pusing mikirin Script yang aku buat ini, mudah-mudahan kamu suka ya##I love you so much sayang..";
+
+      // Ucapan Slide 6
+      ucapan6 = "Isi wish kamu disini ya";
+
+      // Watermark
+      tag = "untukmu sayang";
+
+      // Pop up setelah kado
+      async function setelahKado(inijanganhapus) {
+        await swalo.fire({ title: "Lanjut gak nihh", confirmButtonText: "Lanjuttt" });
+
+        inijanganhapus();
+      }
+
+      // Pop up setelah wish
+      async function sendwish() {
+        pesanku = valuewish.value;
+        if (pesanku) {
+          await swalo.fire({ confirmButtonText: "OK", title: "Kirim ke wa aku ya" });
+          location.assign(`https://wa.me/089502394302?text=${pesanku}`);
+        } else {
+          await swalo.fire({ confirmButtonText: "OK", title: "Jangan dikosongin dong" });
+        }
+      }
+    </script>
+    <script src="https://files.dariku.my.id/dk202/scripts.js"></script>
+  </body>
+</html>
